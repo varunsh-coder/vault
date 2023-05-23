@@ -1,7 +1,7 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
-FROM debian:buster
+FROM debian:buster@sha256:322859539526a04978dee1a2575b515295f6706f17d280f877a634299a7c1414
 
 RUN apt-get update -y && apt-get install --no-install-recommends -y -q \
                          curl \
