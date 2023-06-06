@@ -3,12 +3,22 @@ on:
     types:
       - closed
 
+permissions:
+  contents: read
+
 jobs:
   stable_website_cherry_pick:
+    permissions:
+      contents: write  # for Git to git push
     if: github.event.pull_request.merged && contains(github.event.pull_request.labels.*.name, 'docs-cherrypick')
     runs-on: ubuntu-latest
     name: Cherry pick to stable-website branch
     steps:
+    - name: Harden Runner
+      uses: step-security/harden-runner@128a63446a954579617e875aaab7d2978154e969 # v2.4.0
+      with:
+        egress-policy: audit
+
     - name: Checkout
       uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
       with:

@@ -5,3 +5,133 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /api/auth/approle
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /api/auth/aws
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /api/auth/azure
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /api/auth/gcp
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /api/auth/kubernetes
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /api/auth/ldap
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /api/auth/userpass
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /api
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /scripts/cross
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /scripts/docker
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /sdk
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /ui/lib/core
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /ui/lib/css
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /ui/lib/keep-gitkeep
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /ui/lib/kmip
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /ui/lib/kubernetes
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /ui/lib/open-api-explorer
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /ui/lib/pki
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /ui/lib/replication
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /ui/lib/service-worker-authenticated-download
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /ui
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /vault/hcp_link/proto
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /website
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /website
+    schedule:
+      interval: daily

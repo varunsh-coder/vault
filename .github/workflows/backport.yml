@@ -7,12 +7,20 @@ on:
       - closed
       - labeled
 
+permissions:
+  contents: read
+
 jobs:
   backport-targeted-release-branch:
     if: github.event.pull_request.merged
     runs-on: ubuntu-latest
     container: hashicorpdev/backport-assistant:0.3.3
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@128a63446a954579617e875aaab7d2978154e969 # v2.4.0
+        with:
+          egress-policy: audit
+
       - name: Backport changes to targeted release branch
         run: |
           backport-assistant backport -merge-method=squash -gh-automerge 

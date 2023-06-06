@@ -72,6 +72,11 @@ jobs:
       MATRIX_FILE: ./.github/enos-run-matrices/${{ inputs.matrix-file-name }}.json
       MATRIX_TEST_GROUP: ${{ inputs.matrix-test-group }}
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@128a63446a954579617e875aaab7d2978154e969 # v2.4.0
+        with:
+          egress-policy: audit
+
       - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
         with:
           ref: ${{ inputs.vault-revision }}
@@ -106,8 +111,13 @@ jobs:
       ENOS_VAR_vault_license_path: ./support/vault.hclic
       ENOS_DEBUG_DATA_ROOT_DIR: /tmp/enos-debug-data
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@128a63446a954579617e875aaab7d2978154e969 # v2.4.0
+        with:
+          egress-policy: audit
+
       - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
-      - uses: hashicorp/setup-terraform@v2
+      - uses: hashicorp/setup-terraform@633666f66e0061ca3b725c73b2ec20cd13a8fdd1 # v2.0.3
         with:
           # the Terraform wrapper will break Terraform execution in Enos because
           # it changes the output to text when we expect it to be JSON.
@@ -120,7 +130,7 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN_CI }}
           role-skip-session-tagging: true
           role-duration-seconds: 3600
-      - uses: hashicorp/action-setup-enos@v1
+      - uses: hashicorp/action-setup-enos@8a30c335de1c4ce4d3afb6578db6352e908ccce8 # v1.21
         with:
           github-token: ${{ secrets.ELEVATED_GITHUB_TOKEN }}
       - name: Prepare scenario dependencies
